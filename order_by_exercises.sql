@@ -14,6 +14,10 @@ SELECT * FROM employees WHERE last_name LIKE 'e%e' ORDER BY emp_no;
 #
 SELECT * FROM employees WHERE last_name LIKE '%q%' AND last_name NOT LIKE '%qu%';
 
+SELECT * FROM employees WHERE last_name LIKE '%e' OR last_name LIKE 'e%' ORDER BY emp_no DESC;
+
+SELECT * FROM employees WHERE last_name LIKE 'e%e' ORDER BY emp_no DESC;
+
 
 
 
