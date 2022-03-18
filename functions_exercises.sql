@@ -30,6 +30,23 @@ SELECT * FROM employees WHERE month(birth_date) = 12 AND day(birth_date) = 25 AN
 
 SELECT CONCAT (first_name, ' ', last_name), FLOOR(datediff(CURDATE(), hire_date)/365) FROM employees WHERE month(birth_date) = 12 AND day(birth_date) = 25 AND year(hire_date) BETWEEN 1990 AND 1999;
 
+SELECT COUNT(*) FROM employees;
+
+SELECT COUNT(first_name)
+FROM employees
+WHERE first_name NOT LIKE '%a%';
+
+SELECT first_name, COUNT(first_name)
+FROM employees
+WHERE first_name NOT LIKE '%a%'
+GROUP BY first_name;
+
+SELECT hire_date, COUNT(*)
+FROM employees
+GROUP BY hire_date
+ORDER BY COUNT(*) DESC
+LIMIT 10;
+
 
 
 
