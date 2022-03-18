@@ -22,3 +22,4 @@ GROUP BY full_name, last_name
 ORDER BY last_name
 LIMIT 25;
 
+SELECT CONCAT(emp_no, ' - ', first_name, ' ', last_name) AS full_name, birth_date AS 'dob' FROM employees LIMIT 10;
