@@ -42,11 +42,25 @@ WHERE to_date = '9999-01-01'
 
 SELECT titles.title AS title, COUNT(all title) AS count
 FROM titles
-JOIN employees ON titles.emp_no = employees.emp_no
-JOIN dept_emp ON dept_emp.emp_no = employees.emp_no
+         JOIN employees ON titles.emp_no = employees.emp_no
+         JOIN dept_emp ON dept_emp.emp_no = employees.emp_no
 WHERE dept_no = 'd009'
-AND titles.to_date = '9999-01-01'
+  AND titles.to_date = '9999-01-01'
 GROUP BY titles.title;
+
+SELECT departments.dept_name                                  AS department,
+       CONCAT(employees.first_name, ' ', employees.last_name) AS manager,
+       salaries.salary                                        AS salary
+FROM departments
+         JOIN dept_manager ON departments.dept_no = dept_manager.dept_no
+         JOIN employees on dept_manager.emp_no = employees.emp_no
+         JOIN salaries on employees.emp_no = salaries.emp_no
+     WHERE dept_manager.to_date = '9999-01-01'
+AND salaries.to_date = '9999-01-01';
+
+
+
+
 
 
 
