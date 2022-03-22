@@ -26,4 +26,8 @@ FROM employees
 GROUP BY last_name, first_name
 ORDER BY last_name;
 
+SELECT JSON_OBJECTAGG(last_name, first_name) FROM employees LIMIT 10;
+
+
+
 
