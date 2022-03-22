@@ -21,4 +21,9 @@ SELECT last_name, count(last_name) FROM employees WHERE last_name LIKE '%q%' AND
 
 SELECT gender, count(gender) FROM employees WHERE first_name = 'Irena' OR first_name = 'Vidya' OR first_name = 'Maya' GROUP BY gender;
 
+SELECT last_name, first_name
+FROM employees
+GROUP BY last_name, first_name
+ORDER BY last_name;
+
 
