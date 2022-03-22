@@ -28,6 +28,15 @@ ORDER BY last_name;
 
 SELECT JSON_OBJECTAGG(last_name, first_name) FROM employees LIMIT 10;
 
+SELECT first_name, COUNT(first_name)
+FROM employees
+WHERE first_name NOT LIKE '%a%'
+GROUP BY first_name;
+
+SELECT last_name, LENGTH(last_name) FROM employees;
+
+
+
 
 
 
