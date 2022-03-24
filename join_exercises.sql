@@ -55,13 +55,26 @@ FROM departments
          JOIN dept_manager ON departments.dept_no = dept_manager.dept_no
          JOIN employees on dept_manager.emp_no = employees.emp_no
          JOIN salaries on employees.emp_no = salaries.emp_no
-     WHERE dept_manager.to_date = '9999-01-01'
-AND salaries.to_date = '9999-01-01';
+WHERE dept_manager.to_date = '9999-01-01'
+  AND salaries.to_date = '9999-01-01';
 
-SELECT CONCAT(first_name, ' ', last_name) AS full_name, CONCAT(from_date, ' to ', to_date) AS dates_in_role, dept_name AS department FROM employees
-JOIN current_dept_emp ON current_dept_emp.emp_no = employees.emp_no
-JOIN departments ON current_dept_emp.dept_no = departments.dept_no
-WHERE to_date = '9999-01-01' AND first_name LIKE 'Mo%';
+SELECT CONCAT(first_name, ' ', last_name) AS full_name,
+       CONCAT(from_date, ' to ', to_date) AS dates_in_role,
+       dept_name                          AS department
+FROM employees
+         JOIN current_dept_emp ON current_dept_emp.emp_no = employees.emp_no
+         JOIN departments ON current_dept_emp.dept_no = departments.dept_no
+WHERE to_date = '9999-01-01'
+  AND first_name LIKE 'Mo%';
+
+SELECT CONCAT(first_name, ' ', last_name) AS full_name,
+       CONCAT(from_date, ' to ', to_date) AS dates_in_role,
+       dept_name                          AS department
+FROM employees
+         JOIN current_dept_emp ON current_dept_emp.emp_no = employees.emp_no
+         JOIN departments ON current_dept_emp.dept_no = departments.dept_no
+WHERE to_date = '9999-01-01'
+  AND first_name NOT LIKE 'Mo%';
 
 
 
